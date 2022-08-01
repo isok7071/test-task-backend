@@ -32,7 +32,7 @@ Route::get('/quote_tags',[Quote_tagController::class, 'getQuote_tags']);
 
 Route::prefix('/tags' )->group(function (){
     //Массив всех доступных тегов постранично по 10
-    Route::get('/',[TagController::class, 'getAllTags']);
+    Route::get('/',[TagController::class, 'getTags']);
     //Массив всех доступных тегов со связанными цитатами постранично по 10
     Route::get('/relation',[TagController::class, 'getTagsRelation']);
 });

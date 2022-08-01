@@ -14,7 +14,6 @@ class QuoteController extends Controller
     public function getQuotes()
     {
         return Quote::with('tags')->orderBy('created_at', 'desc')->paginate(10);
-
     }
 
     /*
@@ -40,7 +39,6 @@ class QuoteController extends Controller
         } else {
             return response()->json(['status' => false, 'message' => 'Quote doesnt added']);
         }
-
 
     }
 

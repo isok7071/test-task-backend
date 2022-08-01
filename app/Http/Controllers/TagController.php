@@ -13,7 +13,7 @@ class TagController extends Controller
     */
     public function getTags()
     {
-        return Tag::query()->orderBy('created_at', 'desc')->paginate(10);
+        return Tag::query()->orderBy('created_at', 'desc');
     }
 
     /*
