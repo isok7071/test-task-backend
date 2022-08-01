@@ -24,8 +24,8 @@ class QuoteController extends Controller
     {
         $quote = new Quote();
         if (!empty($request)) {
-            $quote->quote_text = $request->quote_text;
-            $quote->quote_author = $request->quote_author;
+            $quote->quote_text = htmlspecialchars($request->quote_text);
+            $quote->quote_author = htmlspecialchars($request->quote_author);
             $quote->save();
             foreach ($request->tags as $tag) {
                 $quote_tags = new Quote_tag();
