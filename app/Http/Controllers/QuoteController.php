@@ -35,7 +35,7 @@ class QuoteController extends Controller
             }
         }
 
-        return response()->json('ok', '200')->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', '*');
+        return response()->json('ok', '200')->header('Access-Control-Allow-Headers', 'Authorization, Origin, X-Requested-With, Accept, X-PINGOTHER, Content-Type')->header('Access-Control-Allow-Origin', '*')->header('Access-Control-Allow-Methods', '*');
 
     }
 
