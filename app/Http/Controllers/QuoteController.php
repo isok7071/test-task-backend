@@ -35,7 +35,7 @@ class QuoteController extends Controller
             }
         }
         if ($quote->save() && $quote_tags->save()) {
-            return response()->json('ok','200', ['Access-Control-Allow-Origin'=>'*']);
+            return response()->json('ok','200', ['Access-Control-Allow-Origin:*']);
         } else {
             return response()->json(['status' => false, 'message' => 'Quote doesnt added']);
         }
