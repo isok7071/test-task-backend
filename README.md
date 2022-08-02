@@ -6,6 +6,9 @@
     <li>
     Добавить теги - php artisan db:seed TagSeeder
     </li>
+    <li>
+    Если нужен дамп - он в папке database/dump.rar
+</li>
 </ul>
 <h1>Ссылки:</h1>
 <a href="https://test-task-backend-napopravky.herokuapp.com">Сайт бэкэнда(API)</a><br>
