@@ -9,16 +9,27 @@ use Illuminate\Http\Request;
 class QuoteController extends Controller
 {
     /*
-     * Return quotes with relation 'tags'
+     * Return quotes by filters  with relation 'tags'
      */
-    public function getQuotes()
+    public function getQuotes(Request $request): \Illuminate\Contracts\Pagination\LengthAwarePaginator
     {
-        return Quote::with('tags')->orderBy('created_at', 'desc')->paginate(10);
+        $query = Quote::with('tags')->orderBy('created_at', 'desc');
+        if ($request->filled('id')){
+            $query->whereRaw('id = ?',[$request->id]);
+        }
+        if ($request->filled('quote_author')){
+            $query->whereRaw('quote_author like ?', ['%'.$request->quote_author.'%']);
+        }
+        if ($request->filled('quote_text')){
+            $query->whereRaw('quote_text like ?', ['%'.$request->quote_text.'%']);
+        }
+        return $query->paginate(10);
     }
+
+
 
     /*
      * Add a new quote
-     *
      */
     public function addQuote(Request $request): \Illuminate\Http\JsonResponse
     {
